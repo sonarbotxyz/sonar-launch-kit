@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0A0B0D;
+  --foreground: #EDEDED;
+  --base-blue: #0052FF;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111318;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232734;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0052FF;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(0, 82, 255, 0.3);
+  color: #fff;
+}
+
+/* Tab content transition */
+.tab-content {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0052FF 0%, #3370FF 50%, #66A3FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(17, 19, 24, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(35, 39, 52, 0.5);
+}
+
+/* Prose styling for generated content */
+.prose-kit h1 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #fff; }
+.prose-kit h2 { font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: #E0E0E0; }
+.prose-kit h3 { font-size: 1.1rem; font-weight: 600; margin: 1rem 0 0.5rem; color: #B0B7C3; }
+.prose-kit p { margin: 0.5rem 0; line-height: 1.7; color: #B0B7C3; }
+.prose-kit ul, .prose-kit ol { margin: 0.5rem 0; padding-left: 1.5rem; color: #B0B7C3; }
+.prose-kit li { margin: 0.25rem 0; line-height: 1.6; }
+.prose-kit strong { color: #fff; font-weight: 600; }
+.prose-kit em { color: #3370FF; }
+.prose-kit code { background: #1A1D26; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; color: #3370FF; }
+.prose-kit blockquote { border-left: 3px solid #0052FF; padding-left: 1rem; margin: 0.75rem 0; color: #8A919E; }
+.prose-kit hr { border-color: #232734; margin: 1.5rem 0; }
+.prose-kit table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.prose-kit th { text-align: left; padding: 0.5rem; border-bottom: 2px solid #232734; color: #fff; font-weight: 600; }
+.prose-kit td { padding: 0.5rem; border-bottom: 1px solid #1A1D26; color: #B0B7C3; }
