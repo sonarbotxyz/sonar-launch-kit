@@ -1,222 +1,153 @@
 import Link from "next/link";
-import {
-  Rocket,
-  Coins,
-  Droplets,
-  Users,
-  CheckSquare,
-  Twitter,
-  Calendar,
-  ArrowRight,
-  Zap,
-  Shield,
-  Clock,
-} from "lucide-react";
 
-const FEATURES = [
+const SECTIONS = [
   {
-    icon: Coins,
     title: "Tokenomics Framework",
-    desc: "Token distribution, vesting schedules, and utility design tailored to your project",
+    preview:
+      "Total Supply: 100,000,000 $SNR\n\nDistribution:\n- Community & Airdrops: 40%\n- Liquidity: 20%\n- Team (4yr vest, 1yr cliff): 15%\n- Treasury: 15%\n- Advisors: 5%\n- Public Sale: 5%\n\nUtility: Promoted listings, governance voting, staking rewards...",
   },
   {
-    icon: Droplets,
     title: "LP Strategy",
-    desc: "Aerodrome & Uniswap v3 liquidity provisioning plan with risk management",
+    preview:
+      "Aerodrome (Primary):\n- Volatile pool: SNR/WETH\n- Initial: $5,000 SNR + $5,000 ETH\n- veAERO voting: lock 10k AERO for emissions\n\nUniswap v3:\n- Fee tier: 1% (new token)\n- Range: full range first 2 weeks\n- Rebalance at ±30% deviation...",
   },
   {
-    icon: Users,
     title: "Community Playbook",
-    desc: "30-day growth strategy with weekly milestones and engagement tactics",
+    preview:
+      "Week 1 — Foundation:\n- Set up Discord with roles: Builder, OG, Mod\n- Launch X account, pin thread\n- Target: 200 Discord, 500 X followers\n\nWeek 2 — Growth:\n- AMA with Base ecosystem builder\n- Meme contest: $500 in SNR prizes\n- Target: 500 Discord, 1.5k X...",
   },
   {
-    icon: CheckSquare,
+    title: "X Launch Thread",
+    preview:
+      '1/ We built the thing nobody asked for but everyone needed.\n\n@sonarbot_xyz is the first launchpad built specifically for AI agents on Base.\n\nHere\'s why it matters 🧵\n\n2/ The problem: there are 500+ AI agents on Base. Zero discovery layer...',
+  },
+  {
     title: "Launch Checklist",
-    desc: "20-item comprehensive checklist covering smart contracts to marketing",
+    preview:
+      "Smart Contract:\n[ ] Deploy to Base mainnet\n[ ] Verify on Basescan\n[ ] Multisig ownership transfer\n[ ] Emergency pause tested\n\nLiquidity:\n[ ] Aerodrome pool created\n[ ] Initial LP deposited\n[ ] LP tokens locked 6 months...",
   },
   {
-    icon: Twitter,
-    title: "X Thread Template",
-    desc: "10-tweet viral launch thread ready to customize and post",
-  },
-  {
-    icon: Calendar,
     title: "Content Calendar",
-    desc: "Full month of daily content mapped across platforms with posting times",
+    preview:
+      "Day 1 (Mon) — X Thread: \"What we're building\"\nDay 2 (Tue) — Discord: Welcome message + rules\nDay 3 (Wed) — X Post: Problem statement meme\nDay 4 (Thu) — Blog: Deep dive on tokenomics\nDay 5 (Fri) — X Thread: Team intro...",
   },
-];
-
-const STEPS = [
-  { num: "01", title: "Answer 10 Questions", desc: "Tell us about your project, token, and goals" },
-  { num: "02", title: "AI Generates Your Kit", desc: "Claude crafts a comprehensive launch strategy" },
-  { num: "03", title: "Launch with Confidence", desc: "Execute your plan and ship on Base" },
 ];
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-base-blue/5 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-base-blue/10 rounded-full blur-[120px]" />
+      <div className="relative max-w-3xl mx-auto px-6 pt-24 sm:pt-32 pb-20">
+        {/* Subtle glow */}
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[500px] -translate-x-1/2 rounded-full bg-base-blue/6 blur-[100px]" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-32 sm:pb-28">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-base-blue/10 border border-base-blue/20 text-base-blue text-sm font-medium mb-8 animate-fade-in">
-              <Zap className="w-4 h-4" />
-              Built for the Base Ecosystem
-            </div>
+        <div className="relative">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+            Ship your Base launch in 24 hours
+          </h1>
+          <p className="mt-4 text-lg text-base-gray-light max-w-xl">
+            Answer 10 questions. Get a full launch package: tokenomics, LP
+            strategy, community playbook, X thread, and launch checklist.
+          </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight animate-slide-up">
-              Launch on Base
-              <br />
-              <span className="gradient-text">in 24 hours</span>
-            </h1>
-
-            <p className="mt-6 text-lg sm:text-xl text-base-gray-light max-w-2xl mx-auto animate-slide-up">
-              Answer 10 questions, get a complete builder launch kit.
-              Tokenomics, LP strategy, community playbook, launch timeline,
-              and social kit — all generated in minutes.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up">
-              <Link
-                href="/generate"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-base-blue hover:bg-base-blue-light text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-base-blue/25 hover:scale-[1.02]"
-              >
-                Generate Your Kit
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/pricing"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border border-base-dark-3 hover:border-base-gray/50 text-base-gray-light hover:text-white rounded-xl transition-all"
-              >
-                View Pricing
-              </Link>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-base-gray">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-base-blue" />
-                <span>No signup required</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-base-blue" />
-                <span>Ready in 2 minutes</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Rocket className="w-4 h-4 text-base-blue" />
-                <span>First kit free</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What's Included */}
-      <section className="py-20 sm:py-28 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Everything you need to{" "}
-              <span className="gradient-text">ship</span>
-            </h2>
-            <p className="mt-4 text-base-gray-light text-lg max-w-2xl mx-auto">
-              Your launch kit includes six comprehensive documents, each
-              tailored to your project and the Base ecosystem.
-            </p>
+          {/* Pricing */}
+          <div className="mt-6 flex items-center gap-4 text-sm">
+            <span className="text-base-gray">Free preview</span>
+            <span className="text-base-dark-3">·</span>
+            <span className="text-white font-medium">
+              Full kit $49 in USDC
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {FEATURES.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={feature.title}
-                  className="group p-6 bg-base-dark-1 rounded-xl border border-base-dark-3 hover:border-base-blue/30 transition-all hover:shadow-lg hover:shadow-base-blue/5"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-base-blue/10 flex items-center justify-center mb-4 group-hover:bg-base-blue/20 transition-colors">
-                    <Icon className="w-6 h-6 text-base-blue" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-base-gray leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20 sm:py-28 bg-base-dark-1/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Three steps to{" "}
-              <span className="gradient-text">launch</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {STEPS.map((step, i) => (
-              <div key={step.num} className="relative">
-                <div className="text-6xl font-bold text-base-dark-3 mb-4">
-                  {step.num}
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-base-gray">{step.desc}</p>
-                {i < STEPS.length - 1 && (
-                  <div className="hidden md:block absolute top-8 right-0 translate-x-1/2">
-                    <ArrowRight className="w-6 h-6 text-base-dark-3" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
+          {/* CTA */}
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <Link
               href="/generate"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-base-blue hover:bg-base-blue-light text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-base-blue/25"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-base-blue hover:bg-base-blue-light text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-base-blue/20"
             >
-              Start Building Your Kit
-              <ArrowRight className="w-5 h-5" />
+              Generate Your Kit
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="p-8 sm:p-12 bg-gradient-to-br from-base-blue/10 to-base-dark-1 rounded-2xl border border-base-blue/20">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to launch?
-            </h2>
-            <p className="text-base-gray-light text-lg mb-8 max-w-xl mx-auto">
-              Already have a project on Base? List it on Sonarbot to get
-              discovered by the community.
-            </p>
             <a
               href="https://www.sonarbot.xyz"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-base-black font-semibold rounded-xl hover:bg-gray-100 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-base-dark-3 text-base-gray-light hover:text-white hover:border-base-gray/50 rounded-xl transition-all"
             >
-              <Rocket className="w-5 h-5" />
-              List on Sonarbot
+              List on Sonarbot after launch &rarr;
             </a>
           </div>
+
+          {/* What's Included — Accordion Previews */}
+          <div className="mt-16">
+            <h2 className="text-sm font-medium uppercase tracking-wider text-base-gray mb-4">
+              What&apos;s in the kit
+            </h2>
+            <div className="space-y-2">
+              {SECTIONS.map((section) => (
+                <Accordion
+                  key={section.title}
+                  title={section.title}
+                  preview={section.preview}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-20 text-center text-sm text-base-gray">
+            by{" "}
+            <a
+              href="https://twitter.com/0xsonarbot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-base-gray-light hover:text-white transition-colors"
+            >
+              @0xsonarbot
+            </a>{" "}
+            on Base
+          </div>
         </div>
-      </section>
+      </div>
     </div>
+  );
+}
+
+function Accordion({ title, preview }: { title: string; preview: string }) {
+  return (
+    <details className="group rounded-xl border border-base-dark-3 bg-base-dark-1">
+      <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-semibold text-white select-none">
+        {title}
+        <svg
+          className="h-4 w-4 text-base-gray transition-transform group-open:rotate-180"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </summary>
+      <div className="px-5 pb-4">
+        <pre className="whitespace-pre-wrap text-xs leading-relaxed text-base-gray-light font-mono">
+          {preview}
+        </pre>
+      </div>
+    </details>
   );
 }
